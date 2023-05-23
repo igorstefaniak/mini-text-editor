@@ -1,6 +1,7 @@
 <!-- Igor Stefaniak 2023 -->
 <!DOCTYPE html>
 <html lang="pl">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -18,11 +19,13 @@
     <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
     <script src="./scripts/main.js"></script>
 </head>
+
 <body>
     <div id="container">
         <div class="widget">
             <div class="widget-header">
-                <i class="bx bx-bold"></i>
+                <button onclick='changeFont("bold");'><i class="bx bx-bold" ></i></button>
+                
                 <i class="bx bx-italic"></i>
                 <i class="bx bx-underline"></i>
                 <i class="bx bx-strikethrough"></i>
@@ -31,15 +34,36 @@
                 <i class="bx bx-list-ol"></i>
             </div>
             <div class="widget-content">
-                <textarea id="widget-textarea" rows="4" cols="50" spellcheck="true"></textarea>
+                <textarea id="widget-textarea" spellcheck="false"></textarea>
             </div>
             <div class="widget-footer">
-                <i class="bx bx-paperclip"></i>
-                <i class="bx bx-microphone"></i>
-                <i class="bx bx-smile"></i>
-                <i class="bx bx-send"></i>
+                <div class="widget-footer-left">
+                    <i class="bx bx-paperclip"></i>
+                    <i class="bx bx-microphone"></i>
+                    <i class="bx bx-smile"></i>
+                </div>
+                <div class="widget-footer-right">
+                    <i class="bx bx-send"></i>
+                </div>
             </div>
         </div>
     </div>
+    <script>
+function changeFont(font) {
+  var sel = window.getSelection();
+  console.log(window.getSelection().toString())
+  if (sel.rangeCount) {
+    
+    var e = document.createElement('span');
+    e.style = 'font-weight:' + font + ';'; 
+    e.innerHTML = sel.toString();
+
+    var range = sel.getRangeAt(0);
+    range.deleteContents();
+    range.insertNode(e);
+  }
+}
+    </script>
 </body>
+
 </html>

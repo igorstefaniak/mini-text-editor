@@ -21,6 +21,11 @@
     opacity: 0;
 }
 
+.bx{
+    font-size: 1.65rem;
+    margin: 5px;
+}
+
 body{
     background-color: var(--light);
     display: flex;
@@ -33,12 +38,21 @@ body{
     border-radius: 4px;
 }
 
-.widget-header{
+.widget-header, .widget-footer{
     background-color: #f1eff1;
     width: 100%;
+    display: flex;
+    align-items: center;
 }
 
-textarea{
+.widget-footer{
+    justify-content: space-between;
+}
+
+#widget-textarea{
     border-width: 0px;
     padding: 0px;
+    min-width: 450px;
+    height: 150px;
+    vertical-align: top
 }
