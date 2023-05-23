@@ -26,7 +26,7 @@
             <div class="widget-header">
                 <button onclick='changeFont("bold");'><i class="bx bx-bold" ></i></button>
                 
-                <i class="bx bx-italic"></i>
+                <button onclick='changeFont("italic");'><i class="bx bx-italic"></i></button>
                 <i class="bx bx-underline"></i>
                 <i class="bx bx-strikethrough"></i>
                 <i class="bx bx-link-alt"></i>
@@ -34,7 +34,7 @@
                 <i class="bx bx-list-ol"></i>
             </div>
             <div class="widget-content">
-                <textarea id="widget-textarea" spellcheck="false"></textarea>
+                <div contenteditable="true" id="widget-textarea" spellcheck="false"></div>
             </div>
             <div class="widget-footer">
                 <div class="widget-footer-left">
@@ -53,14 +53,29 @@ function changeFont(font) {
   var sel = window.getSelection();
   console.log(window.getSelection().toString())
   if (sel.rangeCount) {
-    
-    var e = document.createElement('span');
+
+    if(font == 'bold'){
+        var e = document.createElement('span');
     e.style = 'font-weight:' + font + ';'; 
     e.innerHTML = sel.toString();
 
     var range = sel.getRangeAt(0);
     range.deleteContents();
     range.insertNode(e);
+    }
+
+    if(font == 'italic'){
+
+    var e = document.createElement('span');
+    e.style = 'font-style:' + font + ';'; 
+    e.innerHTML = sel.toString();
+
+    var range = sel.getRangeAt(0);
+    range.deleteContents();
+    range.insertNode(e); 
+    }
+    
+
   }
 }
     </script>

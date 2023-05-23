@@ -45,8 +45,13 @@ body{
     align-items: center;
 }
 
+.widget-header{
+    border-radius: 2px 2px 0 0;
+}
+
 .widget-footer{
     justify-content: space-between;
+    border-radius: 0 0 2px 2px;
 }
 
 #widget-textarea{
@@ -55,4 +60,10 @@ body{
     min-width: 450px;
     height: 150px;
     vertical-align: top
+}
+
+button{
+    appearance: none;
+    padding: 0;
+    border: none;
 }
